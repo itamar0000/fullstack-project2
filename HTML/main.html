@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <span id="display-username">User</span></h1>
+        <button id="btn-logout" style="background: #c0392b;">Logout</button>
+    </header>
+
+    <div class="container">
+        <h2>Your Stats</h2>
+        <p>Total Score: <strong id="display-score">0</strong></p>
+        <p>Last Activity: <span id="display-login"></span></p>
+
+        <div class="game-grid">
+            <div class="game-card" onclick="window.location.href='game1.html'">
+                <h3>🚀 Falling Blocks</h3>
+                <p>Use Arrows to catch items!</p>
+            </div>
+            <div class="game-card" onclick="window.location.href='game2.html'">
+                <h3>🧠 Memory Matrix</h3>
+                <p>Find matching pairs!</p>
+            </div>
+            <div class="game-card" style="opacity: 0.5;">
+                <h3>Snake</h3>
+                <p>Coming Soon...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/storage.js"></script>
+    <script src="../JS/main.js"></script>
+</body>
+</html>
