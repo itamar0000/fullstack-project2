@@ -3,18 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <style>
+        .leaderboard-section { margin-top: 20px; background: #f9f9f9; padding: 15px; border-radius: 8px; }
+        .filters { margin-bottom: 10px; display: flex; gap: 10px; }
+        .filter-btn { padding: 5px 15px; border: 1px solid #ccc; background: white; cursor: pointer; border-radius: 4px; }
+        .filter-btn.active { background-color: #3498db; color: white; border-color: #3498db; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome, <span id="display-username">User</span></h1>
-        <button id="btn-logout" style="background: #c0392b;">Logout</button>
+        <h1>Welcome</h1> <button id="btn-logout" style="background: #c0392b;">Logout</button>
     </header>
 
     <div class="container">
         <h2>Your Stats</h2>
         <p>Total Score: <strong id="display-score">0</strong></p>
         <p>Last Activity: <span id="display-login"></span></p>
+        <p>🌍 Global Server Score: <strong id="display-server-score" style="color: #27ae60;">0</strong></p>
+
+        <div class="leaderboard-section">
+            <h3>🏆 Leaderboard</h3>
+            <div class="filters">
+                <button class="filter-btn active" onclick="loadLeaderboard('total', this)">Overall</button>
+                <button class="filter-btn" onclick="loadLeaderboard('easy', this)">Easy</button>
+                <button class="filter-btn" onclick="loadLeaderboard('medium', this)">Medium</button>
+                <button class="filter-btn" onclick="loadLeaderboard('hard', this)">Hard</button>
+            </div>
+            
+            <table id="leaderboard-table">
+                <thead>
+                    <tr><th>Rank</th><th>User</th><th>Score</th></tr>
+                </thead>
+                <tbody id="leaderboard-body"></tbody>
+            </table>
+        </div>
 
         <div class="game-grid">
             <div class="game-card" onclick="window.location.href='game1.html'">

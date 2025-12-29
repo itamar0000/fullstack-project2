@@ -1,0 +1,135 @@
+/* * dashboard.css - Specific styles for Main Menu
+ * Concepts: CSS Grid Layout, Card Hover Effects, Table Styling
+ */
+
+/* Stats Bar */
+.container > p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-right: 2rem;
+    background: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Leaderboard Section */
+.leaderboard-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #e2e8f0;
+}
+
+/* Filter Buttons */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    background: var(--light);
+    color: var(--gray);
+    border: 1px solid #cbd5e1;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem; /* רווח בין שורות */
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+    background: var(--light);
+    padding: 1rem;
+    transition: var(--transition);
+}
+
+tr td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+tr td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+tr:hover td {
+    background: #eef2ff; /* Light indigo on hover */
+    transform: scale(1.01);
+}
+
+/* Game Grid Layout */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.game-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.game-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.game-card p {
+    color: var(--gray);
+}
+
+/* --- Responsive Adjustments (Add to bottom of dashboard.css) --- */
+@media (max-width: 600px) {
+    .container > p {
+        display: block;       /* שובר שורה */
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;          /* רוחב מלא */
+        text-align: center;
+    }
+    
+    .filters {
+        flex-wrap: wrap;      /* מאפשר לכפתורים לרדת שורה */
+        justify-content: center;
+    }
+    
+    /* הטבלה כבר גוללת או מתכווצת, אבל זה יוודא שהיא לא חורגת */
+    .leaderboard-section {
+        overflow-x: auto; 
+    }
+}

@@ -1,0 +1,116 @@
+/* * game.css - Styles for Game Pages
+ * Concepts: Positioning (Absolute/Relative), Z-index layers, Game UI
+ */
+
+/* אזור המשחק */
+#game-area, #memory-board {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 2rem auto;
+    background: var(--dark); /* רקע כהה למשחקים לקונטרסט */
+    border-radius: var(--radius);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+    overflow: hidden;
+    border: 4px solid var(--dark);
+}
+
+/* Game 1 Specifics */
+#player {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* שחקן כחול */
+    position: absolute;
+    bottom: 0;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #3b82f6;
+    transition: left 0.05s linear; /* תזוזה חלקה */
+}
+
+.falling-object {
+    width: 30px;
+    height: 30px;
+    background: #fbbf24; /* צהוב */
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fbbf24;
+}
+
+/* Game 2 Specifics (Memory) */
+#memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background: var(--dark);
+}
+
+.memory-card {
+    background: var(--white);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #6366f1, #4f46e5); /* גב הקלף */
+    color: transparent; /* הסתרת האייקון */
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped {
+    background: var(--white);
+    color: black;
+    transform: rotateY(180deg);
+}
+
+/* Modal / Difficulty Menu */
+#difficulty-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    width: 80%;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    z-index: 50;
+    backdrop-filter: blur(5px);
+}
+
+.diff-btn {
+    width: 100%;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* כפתור חזרה יפה יותר */
+header button {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: var(--dark);
+}
+
+header button:hover {
+    border-color: var(--gray);
+    background: #f1f5f9;
+}
+/* --- Responsive Adjustments (Add to bottom of game.css) --- */
+@media (max-width: 450px) {
+    #game-area, #memory-board {
+        /* מקטין את הלוח ל-85% מהגודל המקורי כדי שייכנס במסך צר */
+        transform: scale(0.85);
+        transform-origin: top center; 
+        margin-bottom: -50px; /* תיקון הרווח שנוצר למטה בגלל ההקטנה */
+    }
+
+    #difficulty-menu {
+        width: 90%; /* התפריט יתפוס כמעט את כל הרוחב */
+        padding: 1rem;
+    }
+}

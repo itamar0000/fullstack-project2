@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Falling Blocks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/games.css">
+    <style>
+        /* סגנון לתפריט בחירת רמה */
+        #difficulty-menu {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 100;
+        }
+        .diff-btn {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,6 +37,13 @@
 
     <div id="game-area">
         <div id="player"></div>
+        
+        <div id="difficulty-menu">
+            <h2>Select Difficulty</h2>
+            <button class="diff-btn" onclick="setDifficulty('easy')" style="background: #27ae60;">Easy (Slow)</button>
+            <button class="diff-btn" onclick="setDifficulty('medium')" style="background: #f39c12;">Medium (Normal)</button>
+            <button class="diff-btn" onclick="setDifficulty('hard')" style="background: #c0392b;">Hard (Fast)</button>
+        </div>
     </div>
 
     <script src="../JS/storage.js"></script>
