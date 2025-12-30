@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const regForm = document.getElementById('register-form');
 
-    // --- REGISTRATION LOGIC ---
+    //  REGISTRATION LOGIC 
     if (regForm) {
         regForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('reg-password').value;
             const errorDiv = document.getElementById('reg-error');
 
-            // 1. Regex Validation (Unit 12)
+            //  Regex Validation (Unit 12)
             const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             
             // סיסמה חזקה: לפחות אות קטנה, אות גדולה, מספר, ומינימום 6 תווים
@@ -37,20 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 2. Check Duplicates
+            //  Check Duplicates
             if (findUser(username)) {
                 errorDiv.innerText = "Username already taken";
                 return;
             }
 
-            // 3. Create User Object
+            // Create User Object
             const newUser = {
                 username: username,
                 email: email,
                 password: password,
                 score: 0,
                 gamesPlayed: 0,
-                levelScores: { easy: 0, medium: 0, hard: 0 }, // הכנה למשחק 1
+                levelScores: { easy: 0, medium: 0, hard: 0 }, 
                 lastLogin: null,
                 failedAttempts: 0,
                 lockUntil: null
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LOGIN LOGIC ---
+    //  LOGIN LOGIC 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();

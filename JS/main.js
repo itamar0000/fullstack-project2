@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('btn-logout').addEventListener('click', logoutUser);
 
-    // Load Leaderboard (מהלוגיקה הקודמת)
+
     loadLeaderboard('total');
 });
 
-// --- פונקציות טבלת מובילים (נשאר כפי שכתבנו קודם) ---
+
 function loadLeaderboard(type, btnElement) {
     const users = getUsers();
     const tableBody = document.getElementById('leaderboard-body');

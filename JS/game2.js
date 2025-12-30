@@ -15,7 +15,7 @@ let lockBoard = false;
 let firstCard, secondCard;
 let matchesFound = 0;
 
-// 1. Shuffle Algorithm (Fisher-Yates)
+//  Shuffle Algorithm 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -24,7 +24,7 @@ function shuffle(array) {
     return array;
 }
 
-// 2. Build Board
+//  Build Board
 function initGame() {
     board.innerHTML = '';
     const shuffledCards = shuffle(cards);
@@ -41,7 +41,7 @@ function initGame() {
     });
 }
 
-// 3. Game Logic
+// Game Logic
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return; // Prevent double click on same card

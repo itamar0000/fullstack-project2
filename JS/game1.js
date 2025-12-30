@@ -17,7 +17,7 @@ let playerX = 180;
 let score = 0;
 let isGameOver = false;
 let animationId; // מזהה האנימציה לעצירה
-let activeObjects = []; // מערך ניהול אובייקטים
+let activeObjects = []; 
 
 // Settings
 let currentDifficulty = 'medium';
@@ -49,7 +49,7 @@ function setDifficulty(level) {
     startGame();
 }
 
-// 3. Game Loop using requestAnimationFrame (Unit 11)
+// Game Loop using requestAnimationFrame (Unit 11)
 function startGame() {
     score = 0;
     isGameOver = false;
@@ -76,7 +76,7 @@ function gameLoop() {
     animationId = requestAnimationFrame(gameLoop);
 }
 
-// 4. Object Management
+//Object Management
 function createFallingObject() {
     if (isGameOver) return;
 
@@ -118,7 +118,7 @@ function updateObjects() {
     }
 }
 
-// 5. Utilities
+//Utilities
 function checkCollision(playerDiv, objDiv) {
     const pRect = playerDiv.getBoundingClientRect();
     const oRect = objDiv.getBoundingClientRect();
